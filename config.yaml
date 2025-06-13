@@ -1,0 +1,169 @@
+# ADA-ZeroDay-Framework CLI 配置文件
+
+# 应用程序基本信息
+app:
+  name: "ADA-ZeroDay-Framework"
+  version: "1.0.0"
+  description: "国家级漏洞武器管理平台 - 命令行版本"
+  author: "ADA-XiaoYao"
+
+# 数据库配置
+database:
+  type: "sqlite"
+  path: "data/database.db"
+  backup_path: "data/backups/"
+  auto_backup: true
+  backup_interval: 24  # 小时
+
+# 日志配置
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: "data/logs/ada.log"
+  max_size: "10MB"
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  console_output: true
+
+# 安全配置
+security:
+  session_timeout: 3600  # 秒
+  max_login_attempts: 3
+  password_min_length: 8
+  password_require_special: true
+  jwt_secret_key: "your-secret-key-change-this"
+  jwt_algorithm: "HS256"
+  encryption_key: "your-encryption-key-change-this"
+
+# 情报收集配置
+intelligence:
+  sources:
+    cve:
+      enabled: true
+      url: "https://cve.mitre.org/data/downloads/allitems.xml"
+      update_interval: 24  # 小时
+    exploit_db:
+      enabled: true
+      url: "https://www.exploit-db.com/"
+      update_interval: 12  # 小时
+    github:
+      enabled: true
+      api_url: "https://api.github.com"
+      search_keywords: ["exploit", "poc", "vulnerability"]
+      update_interval: 6   # 小时
+  auto_update: true
+  max_results: 1000
+
+# 扫描配置
+scanning:
+  nmap:
+    default_ports: "1-1000"
+    scan_timeout: 300  # 秒
+    max_threads: 10
+  vulnerability_scan:
+    timeout: 600  # 秒
+    max_concurrent: 5
+
+# 漏洞利用配置
+exploitation:
+  code_directory: "data/exploits/"
+  test_environment: "sandbox"
+  timeout: 300  # 秒
+  max_attempts: 3
+  auto_cleanup: true
+
+# 报告配置
+reports:
+  output_dir: "data/reports/"
+  template_dir: "templates/"
+  formats: ["pdf", "html", "json", "csv"]
+  default_format: "pdf"
+  auto_generate: false
+  include_screenshots: true
+
+# 目标管理配置
+targets:
+  default_scan_ports: "22,80,443,3389,5432,3306"
+  scan_timeout: 120  # 秒
+  max_concurrent_scans: 3
+  auto_discovery: false
+
+# 行动计划配置
+campaigns:
+  max_concurrent_tasks: 5
+  task_timeout: 1800  # 秒
+  auto_retry: true
+  max_retries: 3
+  notification_enabled: false
+
+# 网络配置
+network:
+  proxy:
+    enabled: false
+    http: ""
+    https: ""
+  user_agent: "ADA-ZeroDay-Framework/1.0"
+  timeout: 30  # 秒
+  max_redirects: 5
+
+# 通知配置
+notifications:
+  email:
+    enabled: false
+    smtp_server: ""
+    smtp_port: 587
+    username: ""
+    password: ""
+    from_address: ""
+    to_addresses: []
+  webhook:
+    enabled: false
+    url: ""
+    secret: ""
+
+# 性能配置
+performance:
+  max_memory_usage: "1GB"
+  max_cpu_usage: 80  # 百分比
+  cache_size: "100MB"
+  worker_threads: 4
+
+# 调试配置
+debug:
+  enabled: false
+  verbose: false
+  save_requests: false
+  save_responses: false
+
+# 插件配置
+plugins:
+  enabled: true
+  directory: "plugins/"
+  auto_load: true
+  whitelist: []
+  blacklist: []
+
+# 备份配置
+backup:
+  auto_backup: true
+  backup_interval: 24  # 小时
+  max_backups: 30
+  compression: true
+  encryption: true
+
+# API配置 (如果需要对外提供API)
+api:
+  enabled: false
+  host: "127.0.0.1"
+  port: 8080
+  ssl_enabled: false
+  ssl_cert: ""
+  ssl_key: ""
+  rate_limit: 100  # 每分钟请求数
+
+# 更新配置
+updates:
+  auto_check: true
+  check_interval: 168  # 小时 (7天)
+  update_url: "https://api.github.com/repos/ADA-XiaoYao/ADA-ZeroDay-Framework-CLI/releases/latest"
+  auto_update: false
+

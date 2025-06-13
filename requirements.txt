@@ -1,0 +1,63 @@
+# ADA-ZeroDay-Framework CLI 依赖包
+
+# 核心依赖
+click==8.1.7                    # 命令行界面框架
+rich==13.7.0                    # 终端美化和表格显示
+colorama==0.4.6                 # 跨平台彩色终端输出
+tabulate==0.9.0                 # 表格格式化
+
+# 数据库
+sqlalchemy==2.0.23              # ORM框架
+sqlite3                         # SQLite数据库 (Python内置)
+
+# 配置和序列化
+pyyaml==6.0.1                   # YAML配置文件解析
+toml==0.10.2                    # TOML配置文件解析
+python-dotenv==1.0.0            # 环境变量管理
+
+# 加密和安全
+cryptography==41.0.7            # 加密库
+bcrypt==4.1.2                   # 密码哈希
+pyjwt==2.8.0                    # JWT令牌
+
+# 网络和HTTP
+requests==2.31.0                # HTTP请求库
+urllib3==2.1.0                  # URL处理
+aiohttp==3.9.1                  # 异步HTTP客户端
+
+# 数据处理
+pandas==2.1.4                   # 数据分析
+numpy==1.26.2                   # 数值计算
+python-dateutil==2.8.2          # 日期时间处理
+
+# 文件处理
+openpyxl==3.1.2                 # Excel文件处理
+reportlab==4.0.7                # PDF生成
+jinja2==3.1.2                   # 模板引擎
+
+# 网络安全工具
+python-nmap==0.7.1              # Nmap端口扫描
+scapy==2.5.0                    # 网络包处理
+dnspython==2.4.2                # DNS查询
+
+# 爬虫和数据收集
+beautifulsoup4==4.12.2          # HTML解析
+lxml==4.9.3                     # XML/HTML解析器
+feedparser==6.0.10              # RSS/Atom解析
+
+# 日志和监控
+loguru==0.7.2                   # 高级日志库
+psutil==5.9.6                   # 系统监控
+
+# 开发和测试
+pytest==7.4.3                   # 测试框架
+pytest-cov==4.1.0               # 测试覆盖率
+black==23.11.0                  # 代码格式化
+flake8==6.1.0                   # 代码检查
+
+# 其他工具
+tqdm==4.66.1                    # 进度条
+schedule==1.2.0                 # 任务调度
+python-magic==0.4.27            # 文件类型检测
+validators==0.22.0              # 数据验证
+
